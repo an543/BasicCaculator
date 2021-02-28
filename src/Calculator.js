@@ -45,5 +45,8 @@ class Calculator {
         Calculator.Calculations.push(calculation);
         return calculation.GetResults();
     }
+    static clearList(){
+        this.Calculations = [];
+    }
 }
 module.exports = Calculator;

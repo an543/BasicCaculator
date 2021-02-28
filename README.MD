@@ -1,4 +1,103 @@
 [![Build Status](https://travis-ci.org/an543/BasicCaculator.svg?branch=master)](https://travis-ci.org/an543/BasicCaculator)
 [![Coverage Status](https://coveralls.io/repos/github/an543/BasicCaculator/badge.svg?branch=master)](https://coveralls.io/github/an543/BasicCaculator?branch=master)
 
-1. Single..
+1. Single Responsibility Principle 
+   A single Responsibility principle is one of the parts of five object-oriented programming design of (S.O.L.I.D). A single Responsibility principle is nothing,
+   but it is a computer-programming principle that states every module or class should have responsibility over a single part of the functionality provided by the software. and that responsibility should be entirely encapsulated by the class, module, or function.
+function Difference (a,b) {
+return a - b;
+}
+   function Product (a,b) {
+   return a * b;
+   }
+   - Another example of this principle can be found which is:
+     static clearList(){
+     this.Calculations = [];
+     }
+  This principle can find more in the test file where each test represent each 
+     operation
+     
+2. Open - Closed Principle 
+
+JavaScript Modules should be open for extension but closed for modification.
+Tutorial: 
+"software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification".
+
+Explanation: It tells you to write your own code so that you will be able to add new functionality(code) without changing the existing code. It prevents the situations in which a change to one of your code in the classes also requires you to adapt all depending on code in the classes.
+
+Example: The best way to implement this by using the Interfaces. 
+
+-	In this Class Diagram no changes required when a new shape is added (Follow the rules of open closed principle properly)
+class Calculator {
+    static Calculations = []
+    //Static methods can me called without instantiating and are good for actions
+    static Sum(a,b) {
+        //this is how you create a new object and this is good for data and actions
+          let calculation = new Calculation(a,b,Sum);
+          Calculator.Calculations.push(calculation);
+        return calculation.GetResults();
+    }
+
+// where I can the values can be added without using manually input. 
+
+3)  Liskov Substitution Principle
+
+The principle defines that objects of the super-class shall be replaceable 
+with objects of the sub-classes without breaking the application. 
+It requires the objects of your sub-classes to behave in the same way as the objects of your super- class. we need to follow two rules.
+
+class Calculation {
+    //the constructor is the first method called after instantiation and usually sets the properties of the object
+    constructor(a, b, op) {
+        //"this" is the internal reference of the object to access its internal methods and properities
+        this.a = a;
+        this.b = b;
+        this.op = op;
+    }
+}
+
+4) Interface Segregation Principle
+
+The interface segregation principle states that no client should be forced to depend on methods that it does not use.
+This way of working splits large interfaces that aren’t very succinct, into much smaller, manageable interfaces. This approach aims to segregate logic into 
+a decoupled approach that allows for ease of refactoring in the future. Take the following snippet for example. 
+It strictly defines the methods that are available but takes no care for the logic that is 
+contained within that method. This approach allows developers to write succinct and easy to follow code solutions.
+
+For example:
+	
+ function resetCalculator() {
+  calculator.displayValue = '0';
+  calculator.firstOperand = null;
+  calculator.waitingForSecondOperand = false;
+  calculator.operator = null;
+  console.log(calculator);
+}
+
+5) Dependency Inversion Principle
+
+The High-level modules, which contains a complex logic, should be easily reusable and not affected by changes in low-level modules, it provides the utility features. to achieve that , the experts introduce an abstraction 
+that decouples the high-level and low-level modules from each other.
+
+Based on this idea, the Dependency Inversion Principle consists of two parts:
+High-level modules should not depend on low-level modules. Both should depend on abstractions.
+Abstractions should not depend on details. Details should depend on abstraction Explanation: That high-level & low-level modules depend on the abstraction. 
+The design principle does not just change the direction of the dependency, as you might have expected when you read its name for the first time. 
+It splits the dependency between the high-level and low-level modules by introducing an abstraction between them. So, in the end, you get two dependencies 1. 
+The high-level module depends on the abstraction, and 2. The low-level depends on the same abstraction.
+
+  static Difference(a,b) {
+        //this is how you create a new object and this is good for data and actions
+        let calculation = new Calculation(a,b,Difference);
+        Calculator.Calculations.push(calculation);
+        return calculation.GetResults();
+    }
+    static Product(a,b) {
+        //this is how you create a new object and this is good for data and actions
+        let calculation = new Calculation(a,b,Product);
+        Calculator.Calculations.push(calculation);
+        return calculation.GetResults();
+    }
+
+
+II) 
