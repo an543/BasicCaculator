@@ -1,28 +1,41 @@
 const parse = require('csv-parse')
 const fs = require('fs');
-const City = require('./models/City')
-const output = []
-let csvFile = 'data/worldcities.csv';
+const outData = []
 
 
-fs.createReadStream(csvFile)
-    .pipe(parse({
-    columns: true,
-    delimiter: ',',
-    trim: true,
-    skip_empty_lines: true
-})
-    .on('readable', function(){
-        let record
-        while (record = this.read()) {
-            console.log(record)
-            let city = City.create(record);
-            output.push(record)
-        }
-    })
-    // When we are done, test that the parsed output matched what expected
-    .on('end', function(){
+class Read_CSV {
+    static async getRec(fPath, model) {
+        // return
+        return new Promise((resolve, reject) => {
+            fs.createReadStream(fPath)
+                //creating a pipe of data to flow
+                .pipe(parse({
+                    columns: true,
+                    delimiter: ',',
+                    trim: true,
+                    skip_empty_lines: true
+                }))
+                .on('readable', function () {
+                    let record
+                    while (record = this.read()) {
+                        let city = model.create(record);
+                        outData.push(record)
+                    }
+                })
+                // Following is creating the output for the data
+                .on('end', function () {
 
-      //  console.log(output);
+                    resolve(outData);
 
-    }));
+                })
+        });
+    }
+}
+module.exports = Read_CSV;
+
+
+
+
+
+
+
