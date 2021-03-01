@@ -125,17 +125,18 @@ b) Decorator
 these objects inside special wrapper objects.
 Example below showing that we can extending a class is a great idea to alter an object's behavior.
 
-function Calculation() {
-
-    this.sum = function () { return 2; };
-    this.subtraction = function () { return 4; };
-
-}
+    function Calculation() {
+    
+        this.sum = function () { return 2; };
+        this.subtraction = function () { return 4; };
+    
+    }
 Both of the alternatives work almost the same way: 
 one object has a reference to another and delegates it some work, whereas with inheritance, 
 the object itself is able to do that work, inheriting the behavior from its superclass.
 
 c) Template Method
+
 Template Method is a behavioral design pattern that defines the skeleton of an
 algorithm in the superclass but lets subclasses override 
 specific steps of the algorithm without changing its structure
@@ -143,7 +144,7 @@ specific steps of the algorithm without changing its structure
 
 class CalculationTemplate {
 constructor(a, b, opTemplate) {
-//"this" is the internal reference of the object to access its internal methods and properities
+//"this" is the internal reference of the object to access its internal methods and properties
 this.a = a;
 this.b = b;
 this.op = opTemplate;
