@@ -101,3 +101,59 @@ The high-level module depends on the abstraction, and 2. The low-level depends o
 
 
 II) OOP Design Patterns - Builder
+a) Builder
+For this calculator, builder can construct complex objects step by step
+. This pattern allows to produce different types for the calculation
+Example:
+//Builder reset () for the calculator
+static reset() {
+return this.Calculations = [];
+}
+static setSum(a,b, opBuilder){
+this.sum = a + b;
+}
+static setDifference(a,b, opBuilder){
+this.subtraction = a - b;
+}
+
+This builder will extract the object construction code out of its own class
+and move it to separate objects. But I can build each operation and return them together in one
+file, not multiple operations files.
+
+b) Decorator
+ This structural design pattern that we can attach new behaviors to objects by placing 
+these objects inside special wrapper objects.
+Example below showing that we can extending a class is a great idea to alter an object's behavior.
+
+function Calculation() {
+
+    this.sum = function () { return 2; };
+    this.subtraction = function () { return 4; };
+
+}
+Both of the alternatives work almost the same way: 
+one object has a reference to another and delegates it some work, whereas with inheritance, 
+the object itself is able to do that work, inheriting the behavior from its superclass.
+
+c) Template Method
+Template Method is a behavioral design pattern that defines the skeleton of an
+algorithm in the superclass but lets subclasses override 
+specific steps of the algorithm without changing its structure
+ In this calculator, the template will suggest as an example below:
+
+class CalculationTemplate {
+constructor(a, b, opTemplate) {
+//"this" is the internal reference of the object to access its internal methods and properities
+this.a = a;
+this.b = b;
+this.op = opTemplate;
+}
+buildSum(){
+console.log (' Sum run')
+}
+buildSubtract(){
+console.log (' Subtract run')
+}
+
+This show how each step should call each method to have it owns operation
+and then when we test it, we can just call each method run it. 
