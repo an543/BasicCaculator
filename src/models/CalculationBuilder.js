@@ -18,7 +18,7 @@ class CalculationBuilder {
     }
 // and the rest of other operations if this is on the right track.
 
-    //getresults is a method so that it can return back the results of the calculation
+    //get results is a method so that it can return back the results of the calculation
     GetResults() {
         return this.opBuilder(this.a,this.b)
     }

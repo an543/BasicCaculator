@@ -101,26 +101,56 @@ The high-level module depends on the abstraction, and 2. The low-level depends o
 
 
 II) OOP Design Patterns - Builder
-a) Builder
+a) Creational Patterns - Builder
+Builder is a creational design pattern that lets you construct complex objects step by step. 
+The pattern allows you to produce different types and representations of an object using the same construction code
 For this calculator, builder can construct complex objects step by step
-. This pattern allows to produce different types for the calculation
+
+The JS code has a Calculation and two builder objects: 
+addBuilder and subtractBuilder. The calculation's construct method accepts a Builder 
+instance which it then takes through a series of assembly steps: step1 and
+step2. The Builder's get method returns the newly assembled products
+
+The user has control over the actual object construction process by 
+offering different builders to the calculation. 
+This pattern allows producing different types for the calculation
 Example:
-//Builder reset () for the calculator
-static reset() {
-return this.Calculations = [];
-}
-static setSum(a,b, opBuilder){
-this.sum = a + b;
-}
-static setDifference(a,b, opBuilder){
-this.subtraction = a - b;
+    function Calculation() {
+    this.construct = function(builder) {
+    builder.step1();
+    return builder.get();
+        }
+    }
+    function AddBuilder() {
+    this.add = null;
+    
+        this.step1 = function() {
+            this.add = new Add();
+        };
+     
+        this.step2 = function() {
+            this.ass.addParts();
+        };
+     
+        this.get = function() {
+            return this.add;
+        };
+    }
+    function Add() {
+    this.addition = 0;
+    
+        this.addParts = function() {
+            this.doors = 4;
+        };
+      
+    }
 }
 
 This builder will extract the object construction code out of its own class
 and move it to separate objects. But I can build each operation and return them together in one
 file, not multiple operations files.
 
-b) Decorator
+b) Structural Patterns - Decorator
  This structural design pattern that we can attach new behaviors to objects by placing 
 these objects inside special wrapper objects.
 Example below showing that we can extending a class is a great idea to alter an object's behavior.
@@ -135,25 +165,27 @@ Both of the alternatives work almost the same way:
 one object has a reference to another and delegates it some work, whereas with inheritance, 
 the object itself is able to do that work, inheriting the behavior from its superclass.
 
-c) Template Method
+c) Behavioral Patterns - Template Method
 Template Method is a behavioral design pattern that defines the skeleton of an
 algorithm in the superclass but lets subclasses override 
 specific steps of the algorithm without changing its structure
  In this calculator, the template will suggest as an example below:
 
-class CalculationTemplate {
-constructor(a, b, opTemplate) {
-//"this" is the internal reference of the object to access its internal methods and properities
-this.a = a;
-this.b = b;
-this.op = opTemplate;
-}
-buildSum(){
-console.log (' Sum run')
-}
-buildSubtract(){
-console.log (' Subtract run')
-}
+    class CalculationTemplate {
+    constructor(a, b, opTemplate) {
+    //"this" is the internal reference of the object to access its internal methods and properities
+    this.a = a;
+    this.b = b;
+    this.op = opTemplate;
+    }
+    buildSum(){
+    console.log (' Sum run')
+    }
+    buildSubtract(){
+    console.log (' Subtract run')
+    }
 
 This show how each step should call each method to have it owns operation
 and then when we test it, we can just call each method run it. 
+Therefore, the Template Method lets me turn a monolithic algorithm into a series of individual steps which can
+be easily extended by subclasses while keeping intact the structure defined in a superclass
