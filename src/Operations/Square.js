@@ -1,4 +1,4 @@
 function Square (a,b) {
-    return (Math.pow(a,b)); // where is a the base, b  is the exponent 
+    return Math.pow(a,b);
 }
 module.exports = Square;

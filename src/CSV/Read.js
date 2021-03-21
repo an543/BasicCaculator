@@ -1,6 +1,6 @@
 module.exports = class Read {
     static getRecords(filename, Model) {
-        const file = require('../../../IS 219 - ADV WEBSITE DEV/BasicCaculator/src/fileOps/File');
+        const file = require('../fileOps/File');
         const fs = require('fs');
         const parse = require('csv-parse/lib/sync')
         let absolutePath = file.getAbsolutePath(filename);

@@ -1,10 +1,9 @@
-const CSVRead = require('../src/models/Read_CSV');
-const City = require('../src/models/City')
-const expect = require('expect');
+const CSVReader = require('../src/csvReader');
+const City = require('../src/Models/City')
 test('Can Read CSV File', () => {
-    let fPath  = 'data/worldcities.csv';
-    let records = CSVRead.getRec(fPath, City);
+    let filePath  = 'data/worldcities.csv';
+    let records = CSVReader.GetRecord(filePath, City);
     records.then((response) => {
-        expect (response.length).toBe(6);
+        expect(response.length).toBe(6);
     });
 });
