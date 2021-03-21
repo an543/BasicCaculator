@@ -3,7 +3,7 @@
 
 ***Stats Calculator - Group Project***
 
-Member : Quang Nguyen & Andy Nguyen 
+Members : Quang Nguyen & Andy Nguyen 
 
 
 
