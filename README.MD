@@ -1,10 +1,13 @@
 [![Build Status](https://travis-ci.org/an543/BasicCaculator.svg?branch=master)](https://travis-ci.org/an543/BasicCaculator)
 [![Coverage Status](https://coveralls.io/repos/github/an543/BasicCaculator/badge.svg?branch=master)](https://coveralls.io/github/an543/BasicCaculator?branch=master)
 
-Stats Calculator - Group Project 
+***Stats Calculator - Group Project ***
 Member : Quang Nguyen & Andy Nguyen 
 
 
+
+
+***OOP***
 1. Single Responsibility Principle 
    A single Responsibility principle is one of the parts of five object-oriented programming design of (S.O.L.I.D). A single Responsibility principle is nothing,
    but it is a computer-programming principle that states every module or class should have responsibility over a single part of the functionality provided by the software. and that responsibility should be entirely encapsulated by the class, module, or function.
@@ -103,6 +106,7 @@ The high-level module depends on the abstraction, and 2. The low-level depends o
         return calculation.GetResults();
     }
 
+*** Design Patterns ***
 
 II) OOP Design Patterns - Builder
 a) Creational Patterns - Builder
